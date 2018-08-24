@@ -30,7 +30,7 @@
     selectView.layer.shadowColor = [UIColor redColor].CGColor;
     selectView.layer.shadowOffset = CGSizeMake(0,0);
     selectView.layer.shadowOpacity = 5;
-    selectView.titles = @[@"衣服",@"裤子",@"袜子",@"鞋子"];
+    selectView.titles = @[@"衣服",@"裤子",@"袜子",@"鞋子",@"帽子",@"包包"];
     selectView.sortIndexs = @[@1,@3];
     [self.view addSubview:selectView];
     [selectView prepareView];

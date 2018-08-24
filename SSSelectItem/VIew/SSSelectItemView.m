@@ -9,8 +9,12 @@
 #import "SSSelectItemView.h"
 #import <Masonry/Masonry.h>
 #import "SSSortButton.h"
+#import <objc/runtime.h>
+
 
 #define SSColorWithRGB(r,g,b,a) [UIColor colorWithRed:(float)r/255 green:(float)g/255 blue:(float)b/255 alpha:a]
+#define CurrentBeforeSender @"CurrentBeforeSender"
+
 
 @implementation SSSelectItemView
 
@@ -36,6 +40,10 @@
         bt.titleLabel.textColor = SSColorWithRGB(119, 119, 119, 1);
         bt.titleLabel.font =[UIFont systemFontOfSize:14];
         bt.tag = i;
+        if(i == 0){
+            objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), bt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            bt.titleLabel.textColor = SSColorWithRGB(255, 116, 48, 1);
+        }
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:bt];
         [bt mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,6 +105,10 @@
         bt.titleLabel.textColor = SSColorWithRGB(119, 119, 119, 1);
         bt.titleLabel.font =[UIFont systemFontOfSize:14];
         bt.tag = i;
+        if(i == 0){
+            objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), bt, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            bt.titleLabel.textColor = SSColorWithRGB(255, 116, 48, 1);
+        }
         [bt addTarget:self action:@selector(choiceActionButton:) forControlEvents:UIControlEventTouchUpInside];
         [contentBack addSubview:bt];
         [bt mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -124,6 +136,17 @@
 
 #pragma mark - 点击事件
 - (void)choiceActionButton:(SSSortButton *)sender{
+    
+    //获取之前的label
+    SSSortButton *beforeLB = objc_getAssociatedObject(self,  (__bridge const void *_Nonnull)(CurrentBeforeSender));
+    if (beforeLB) {
+        beforeLB.titleLabel.textColor = SSColorWithRGB(119, 119, 119, 1);
+    }
+    
+    //存储当前label
+    objc_setAssociatedObject(self, (__bridge const void *_Nonnull)(CurrentBeforeSender), sender, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    sender.titleLabel.textColor = SSColorWithRGB(255, 116, 48, 1);
+    
     if (sender.sort) {
         if (sender.status == 0 || sender.status == 2) {
             sender.status = 1;
@@ -135,6 +158,7 @@
     if (_completion) {
         _completion(sender.tag,sender.status);
     }
+    
 }
 
 
