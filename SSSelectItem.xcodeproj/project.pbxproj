@@ -10,6 +10,9 @@
 		1D89ADA48C6A4927F35322FA /* libPods-SSSelectItemUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 033B335FE18D1790E7C7E68D /* libPods-SSSelectItemUITests.a */; };
 		2A4055BC3D9884DD99870CF7 /* libPods-SSSelectItemTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 721AA7133B84B93AABA43C75 /* libPods-SSSelectItemTests.a */; };
 		5676251F1E0A2FADCCC8B29E /* libPods-SSSelectItem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F65E40C4BAFD39DCBF0BCE /* libPods-SSSelectItem.a */; };
+		7250080621903B7D00786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7250080421903B7C00786CD3 /* SSArrowView.m */; };
+		7250080721903B7D00786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7250080421903B7C00786CD3 /* SSArrowView.m */; };
+		7250080821903B7D00786CD3 /* SSArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7250080421903B7C00786CD3 /* SSArrowView.m */; };
 		72A595E5212D05E500F0318C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A595E4212D05E500F0318C /* AppDelegate.m */; };
 		72A595E8212D05E500F0318C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A595E7212D05E500F0318C /* ViewController.m */; };
 		72A595EB212D05E500F0318C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72A595E9212D05E500F0318C /* Main.storyboard */; };
@@ -46,6 +49,8 @@
 		4BB0D563FBE5AE8B12FF3843 /* Pods-SSSelectItemUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSelectItemUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSSelectItemUITests/Pods-SSSelectItemUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		51CDDE58C02C512A25B88A66 /* Pods-SSSelectItem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSSelectItem.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSSelectItem/Pods-SSSelectItem.release.xcconfig"; sourceTree = "<group>"; };
 		721AA7133B84B93AABA43C75 /* libPods-SSSelectItemTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SSSelectItemTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7250080421903B7C00786CD3 /* SSArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSArrowView.m; sourceTree = "<group>"; };
+		7250080521903B7D00786CD3 /* SSArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSArrowView.h; sourceTree = "<group>"; };
 		72A595E0212D05E500F0318C /* SSSelectItem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSSelectItem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A595E3212D05E500F0318C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72A595E4212D05E500F0318C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -194,6 +199,8 @@
 				72A59618212D069100F0318C /* SSSortButton.m */,
 				72FC0148212D530F00968ABE /* SSSelectItemView.h */,
 				72FC0149212D530F00968ABE /* SSSelectItemView.m */,
+				7250080521903B7D00786CD3 /* SSArrowView.h */,
+				7250080421903B7C00786CD3 /* SSArrowView.m */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -388,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7250080621903B7D00786CD3 /* SSArrowView.m in Sources */,
 				72A595E8212D05E500F0318C /* ViewController.m in Sources */,
 				72A595F3212D05E600F0318C /* main.m in Sources */,
 				72FC014A212D530F00968ABE /* SSSelectItemView.m in Sources */,
@@ -400,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7250080721903B7D00786CD3 /* SSArrowView.m in Sources */,
 				72A595FD212D05E600F0318C /* SSSelectItemTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7250080821903B7D00786CD3 /* SSArrowView.m in Sources */,
 				72A59608212D05E600F0318C /* SSSelectItemUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,5 +20,14 @@
 //排序状态 （0、默认无序 1、升序  2、降序）
 @property (nonatomic, assign)NSUInteger status;
 
+/**
+ 箭头颜色(默认)
+ */
+@property (nonatomic, strong)UIColor *arrowColor;
+
+/**
+ 箭头颜色(选中)
+ */
+@property (nonatomic, strong)UIColor *arrowSelectColor;
 
 @end

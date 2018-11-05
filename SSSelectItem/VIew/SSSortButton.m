@@ -8,6 +8,8 @@
 
 #import "SSSortButton.h"
 #import <Masonry/Masonry.h>
+#import "SSArrowView.h"
+
 
 #define SSWidth self.frame.size.width
 #define SSHeight self.frame.size.height
@@ -15,8 +17,8 @@
 
 @interface SSSortButton()
 {
-    UIImageView *_topImageView;
-    UIImageView *_bottomImageView;
+    SSArrowView *_topArrow;
+    SSArrowView *_bottomArrow;
 }
 @end
 
@@ -46,28 +48,32 @@
 
 - (void)initSortView{
     //上图标
-    UIImageView *topImageView = [[UIImageView alloc] init];
-    topImageView.image = [UIImage imageNamed:@"arrow-top@2x.png"];
-    _topImageView = topImageView;
-    [self addSubview:topImageView];
-    [topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    SSArrowView *topArrow = [[SSArrowView alloc] initWithFrame:CGRectMake(0, 0, 8, 4)];
+    //    topArrow.layer.borderWidth = 1;
+    _topArrow = topArrow;
+    topArrow.backgroundColor = _arrowColor;
+    [self addSubview:topArrow];
+    [topArrow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->_titleLabel.mas_right);
-        make.centerY.equalTo(self ->_titleLabel.mas_centerY).offset(-3);
-        make.width.offset(11);
-        make.height.offset(6);
+        make.centerY.equalTo(self ->_titleLabel.mas_centerY).offset(-2.5);
+        make.width.offset(8);
+        make.height.offset(4);
     }];
+    [topArrow prepareViewWithDirection:SSArrowViewDirectionTop];
+    
     
     //下图标
-    UIImageView *bottomImageView = [[UIImageView alloc] init];
-    bottomImageView.image = [UIImage imageNamed:@"arrow-bottom@2x.png"];
-    _bottomImageView = bottomImageView;
-    [self addSubview:bottomImageView];
-    [bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    SSArrowView *bottomArrow = [[SSArrowView alloc] initWithFrame:CGRectMake(0, 0, 8, 4)];
+    _bottomArrow = bottomArrow;
+    bottomArrow.backgroundColor = _arrowColor;
+    [self addSubview:bottomArrow];
+    [bottomArrow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self->_titleLabel.mas_right);
-        make.centerY.equalTo(self->_titleLabel.mas_centerY).offset(3);
-        make.width.offset(11);
-        make.height.offset(6);
+        make.centerY.equalTo(self->_titleLabel.mas_centerY).offset(2.5);
+        make.width.offset(8);
+        make.height.offset(4);
     }];
+    [bottomArrow prepareViewWithDirection:SSArrowViewDirectionBottom];
 }
 
 
@@ -85,21 +91,21 @@
     switch (status) {
         case 1://升序
         {
-            _topImageView.image = [UIImage imageNamed:@"arrow-top_selected@2x.png"];
-            _bottomImageView.image = [UIImage imageNamed:@"arrow-bottom@2x.png"];
+            _topArrow.backgroundColor = _arrowSelectColor;
+            _bottomArrow.backgroundColor = _arrowColor;
         }
             break;
         case 2://降序
         {
-            _topImageView.image = [UIImage imageNamed:@"arrow-top@2x.png"];
-            _bottomImageView.image = [UIImage imageNamed:@"arrow-bottom_selected@2x.png"];
+            _topArrow.backgroundColor = _arrowColor;
+            _bottomArrow.backgroundColor = _arrowSelectColor;
         }
             break;
             
         default://默认无序
         {
-            _topImageView.image = [UIImage imageNamed:@"arrow-top@2x.png"];
-            _bottomImageView.image = [UIImage imageNamed:@"arrow-bottom@2x.png"];
+            _topArrow.backgroundColor = _arrowColor;
+            _bottomArrow.backgroundColor = _arrowColor;
         }
             break;
     }
